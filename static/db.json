@@ -1,0 +1,535 @@
+{
+  "exercises": [
+    {
+      "id": "warmup",
+      "name": "Échauffement dynamique",
+      "icon": "🚶‍♀️",
+      "description": "Marche sur place avec montées de genoux, rotations des bras et des épaules. Active progressivement tes articulations.",
+      "duration": 180,
+      "type": "timed",
+      "category": "warmup",
+      "recoveryTime": 30,
+      "defaultReps": null
+    },
+    {
+      "id": "arm-circles",
+      "name": "Cercles de bras",
+      "icon": "🌀",
+      "description": "Tends les bras sur les côtés, fais des cercles avant puis arrière. Échauffe tes épaules en douceur.",
+      "duration": 60,
+      "type": "timed",
+      "category": "warmup",
+      "recoveryTime": 15,
+      "defaultReps": null
+    },
+    {
+      "id": "leg-swings",
+      "name": "Balancement de jambes",
+      "icon": "🦵",
+      "description": "Tiens-toi à un support, balance ta jambe d'avant en arrière puis latéralement. Échauffe tes hanches.",
+      "duration": null,
+      "type": "reps",
+      "category": "warmup",
+      "recoveryTime": 20,
+      "defaultReps": 10
+    },
+    {
+      "id": "squats",
+      "name": "Squats complets",
+      "icon": "🦵",
+      "description": "Pieds écartés largeur d'épaules, descends jusqu'à ce que tes cuisses soient parallèles au sol. Remonte en poussant sur les talons.",
+      "duration": null,
+      "type": "reps",
+      "category": "strength",
+      "recoveryTime": 60,
+      "defaultReps": 12
+    },
+    {
+      "id": "jump-squats",
+      "name": "Squats sautés",
+      "icon": "⚡",
+      "description": "Même position que le squat, mais explose vers le haut en sautant. Atterris en douceur.",
+      "duration": null,
+      "type": "reps",
+      "category": "cardio",
+      "recoveryTime": 90,
+      "defaultReps": 8
+    },
+    {
+      "id": "sumo-squats",
+      "name": "Squats sumo",
+      "icon": "🤺",
+      "description": "Pieds très écartés, pointes vers l'extérieur. Descends en gardant les genoux alignés avec les pieds.",
+      "duration": null,
+      "type": "reps",
+      "category": "strength",
+      "recoveryTime": 60,
+      "defaultReps": 10
+    },
+    {
+      "id": "push-ups",
+      "name": "Pompes classiques",
+      "icon": "💪",
+      "description": "Corps aligné, descends jusqu'à frôler le sol. Si c'est trop dur, mets les genoux au sol.",
+      "duration": null,
+      "type": "reps",
+      "category": "strength",
+      "recoveryTime": 60,
+      "defaultReps": 8
+    },
+    {
+      "id": "diamond-pushups",
+      "name": "Pompes diamant",
+      "icon": "💎",
+      "description": "Forme un diamant avec tes mains sous ta poitrine. Travaille intensément tes triceps.",
+      "duration": null,
+      "type": "reps",
+      "category": "strength",
+      "recoveryTime": 75,
+      "defaultReps": 5
+    },
+    {
+      "id": "wide-pushups",
+      "name": "Pompes larges",
+      "icon": "🤲",
+      "description": "Mains plus écartées que les épaules. Cible davantage ta poitrine.",
+      "duration": null,
+      "type": "reps",
+      "category": "strength",
+      "recoveryTime": 60,
+      "defaultReps": 8
+    },
+    {
+      "id": "pike-pushups",
+      "name": "Pompes pike",
+      "icon": "🔺",
+      "description": "Position en V inversé, pieds écartés. Descends ta tête vers le sol pour travailler tes épaules.",
+      "duration": null,
+      "type": "reps",
+      "category": "strength",
+      "recoveryTime": 70,
+      "defaultReps": 6
+    },
+    {
+      "id": "lunges",
+      "name": "Fentes alternées",
+      "icon": "🚶",
+      "description": "Alterne jambe droite et gauche, descends jusqu'à ce que ton genou arrière frôle le sol.",
+      "duration": null,
+      "type": "reps",
+      "category": "strength",
+      "recoveryTime": 50,
+      "defaultReps": 10
+    },
+    {
+      "id": "reverse-lunges",
+      "name": "Fentes arrière",
+      "icon": "⬅️",
+      "description": "Recule ta jambe au lieu d'avancer. Plus facile pour l'équilibre.",
+      "duration": null,
+      "type": "reps",
+      "category": "strength",
+      "recoveryTime": 50,
+      "defaultReps": 10
+    },
+    {
+      "id": "lateral-lunges",
+      "name": "Fentes latérales",
+      "icon": "↔️",
+      "description": "Fais un grand pas sur le côté, plie une jambe en gardant l'autre tendue.",
+      "duration": null,
+      "type": "reps",
+      "category": "strength",
+      "recoveryTime": 50,
+      "defaultReps": 8
+    },
+    {
+      "id": "jumping-lunges",
+      "name": "Fentes sautées",
+      "icon": "🦘",
+      "description": "En position de fente, saute pour changer de jambe en l'air. Très intense !",
+      "duration": null,
+      "type": "reps",
+      "category": "cardio",
+      "recoveryTime": 90,
+      "defaultReps": 6
+    },
+    {
+      "id": "plank",
+      "name": "Planche statique",
+      "icon": "🏋️",
+      "description": "Corps aligné de la tête aux talons, contracte tes abdos et fessiers. Respire normalement.",
+      "duration": 45,
+      "type": "timed",
+      "category": "core",
+      "recoveryTime": 40,
+      "defaultReps": null
+    },
+    {
+      "id": "side-plank",
+      "name": "Planche latérale",
+      "icon": "📐",
+      "description": "Sur le côté, appui sur l'avant-bras, corps aligné. Travaille tes obliques.",
+      "duration": 30,
+      "type": "timed",
+      "category": "core",
+      "recoveryTime": 30,
+      "defaultReps": null
+    },
+    {
+      "id": "plank-up-down",
+      "name": "Planche montée-descente",
+      "icon": "⬆️⬇️",
+      "description": "Passe de la planche sur avant-bras à la planche sur mains, puis redescends.",
+      "duration": null,
+      "type": "reps",
+      "category": "core",
+      "recoveryTime": 60,
+      "defaultReps": 6
+    },
+    {
+      "id": "mountain-climbers",
+      "name": "Mountain Climbers",
+      "icon": "🏔️",
+      "description": "Position de planche, alterne rapidement les genoux vers la poitrine. Garde tes hanches stables.",
+      "duration": 45,
+      "type": "timed",
+      "category": "cardio",
+      "recoveryTime": 45,
+      "defaultReps": null
+    },
+    {
+      "id": "burpees",
+      "name": "Burpees complets",
+      "icon": "🔥",
+      "description": "Squat → planche → pompe → squat → saut. L'exercice ultime pour tout ton corps !",
+      "duration": null,
+      "type": "reps",
+      "category": "cardio",
+      "recoveryTime": 90,
+      "defaultReps": 5
+    },
+    {
+      "id": "half-burpees",
+      "name": "Demi-burpees",
+      "icon": "🌊",
+      "description": "Squat → planche → squat → debout. Version sans pompe ni saut pour débuter.",
+      "duration": null,
+      "type": "reps",
+      "category": "cardio",
+      "recoveryTime": 60,
+      "defaultReps": 8
+    },
+    {
+      "id": "glute-bridge",
+      "name": "Pont fessier",
+      "icon": "🍑",
+      "description": "Allongé sur le dos, pieds au sol, soulève tes hanches en contractant tes fessiers.",
+      "duration": null,
+      "type": "reps",
+      "category": "strength",
+      "recoveryTime": 45,
+      "defaultReps": 15
+    },
+    {
+      "id": "single-leg-bridge",
+      "name": "Pont une jambe",
+      "icon": "🦵",
+      "description": "Comme le pont fessier mais avec une seule jambe au sol. Plus difficile !",
+      "duration": null,
+      "type": "reps",
+      "category": "strength",
+      "recoveryTime": 50,
+      "defaultReps": 8
+    },
+    {
+      "id": "jumping-jacks",
+      "name": "Jumping Jacks",
+      "icon": "⭐",
+      "description": "Saute en écartant jambes et bras simultanément. Garde un rythme soutenu mais contrôlé.",
+      "duration": 60,
+      "type": "timed",
+      "category": "cardio",
+      "recoveryTime": 30,
+      "defaultReps": null
+    },
+    {
+      "id": "star-jumps",
+      "name": "Sauts en étoile",
+      "icon": "⭐",
+      "description": "Saute en formant une étoile avec ton corps, bras et jambes bien écartés.",
+      "duration": 45,
+      "type": "timed",
+      "category": "cardio",
+      "recoveryTime": 45,
+      "defaultReps": null
+    },
+    {
+      "id": "high-knees",
+      "name": "Montées de genoux",
+      "icon": "🦵⬆️",
+      "description": "Course sur place en montant tes genoux le plus haut possible. Pompe bien avec tes bras.",
+      "duration": 45,
+      "type": "timed",
+      "category": "cardio",
+      "recoveryTime": 30,
+      "defaultReps": null
+    },
+    {
+      "id": "butt-kicks",
+      "name": "Talons-fesses",
+      "icon": "🦵⬅️",
+      "description": "Course sur place en ramenant tes talons vers tes fesses. Garde le buste droit.",
+      "duration": 45,
+      "type": "timed",
+      "category": "cardio",
+      "recoveryTime": 30,
+      "defaultReps": null
+    },
+    {
+      "id": "crab-walk",
+      "name": "Marche du crabe",
+      "icon": "🦀",
+      "description": "Assis, mains et pieds au sol, soulève tes fesses et avance comme un crabe.",
+      "duration": 60,
+      "type": "timed",
+      "category": "strength",
+      "recoveryTime": 60,
+      "defaultReps": null
+    },
+    {
+      "id": "bear-crawl",
+      "name": "Marche de l'ours",
+      "icon": "🐻",
+      "description": "À quatre pattes sans les genoux au sol, avance en gardant le dos droit.",
+      "duration": 45,
+      "type": "timed",
+      "category": "strength",
+      "recoveryTime": 60,
+      "defaultReps": null
+    },
+    {
+      "id": "bicycle-crunches",
+      "name": "Pédalage abdo",
+      "icon": "🚴‍♀️",
+      "description": "Allongé, alterne coude droit vers genou gauche et vice versa. Pédale dans l'air.",
+      "duration": null,
+      "type": "reps",
+      "category": "core",
+      "recoveryTime": 40,
+      "defaultReps": 20
+    },
+    {
+      "id": "leg-raises",
+      "name": "Élévations de jambes",
+      "icon": "🦵⬆️",
+      "description": "Allongé sur le dos, lève tes jambes tendues jusqu'à 90°. Descends lentement.",
+      "duration": null,
+      "type": "reps",
+      "category": "core",
+      "recoveryTime": 45,
+      "defaultReps": 12
+    },
+    {
+      "id": "russian-twists",
+      "name": "Torsions russes",
+      "icon": "🌪️",
+      "description": "Assis, pieds décollés, tourne ton buste de gauche à droite. Contracte tes abdos.",
+      "duration": 60,
+      "type": "timed",
+      "category": "core",
+      "recoveryTime": 40,
+      "defaultReps": null
+    },
+    {
+      "id": "dead-bug",
+      "name": "Insecte mort",
+      "icon": "🪲",
+      "description": "Sur le dos, bras et cuisses à 90°. Étends bras et jambe opposés sans bouger le dos.",
+      "duration": null,
+      "type": "reps",
+      "category": "core",
+      "recoveryTime": 40,
+      "defaultReps": 10
+    },
+    {
+      "id": "wall-sit",
+      "name": "Chaise murale",
+      "icon": "🪑",
+      "description": "Dos contre le mur, descends comme assis sur une chaise invisible. Tiens bon !",
+      "duration": 60,
+      "type": "timed",
+      "category": "strength",
+      "recoveryTime": 60,
+      "defaultReps": null
+    },
+    {
+      "id": "calf-raises",
+      "name": "Élévations mollets",
+      "icon": "🦵⬆️",
+      "description": "Debout, monte sur la pointe des pieds puis redescends lentement. Travaille tes mollets.",
+      "duration": null,
+      "type": "reps",
+      "category": "strength",
+      "recoveryTime": 30,
+      "defaultReps": 20
+    },
+    {
+      "id": "single-leg-calf",
+      "name": "Mollets une jambe",
+      "icon": "1️⃣🦵",
+      "description": "Élévations de mollets sur une seule jambe. Plus difficile et efficace !",
+      "duration": null,
+      "type": "reps",
+      "category": "strength",
+      "recoveryTime": 40,
+      "defaultReps": 12
+    },
+    {
+      "id": "inchworm",
+      "name": "Ver de terre",
+      "icon": "🐛",
+      "description": "Debout, pose tes mains au sol et avance jusqu'en planche, puis reviens.",
+      "duration": null,
+      "type": "reps",
+      "category": "strength",
+      "recoveryTime": 50,
+      "defaultReps": 6
+    },
+    {
+      "id": "superman",
+      "name": "Superman",
+      "icon": "🦸‍♂️",
+      "description": "Allongé sur le ventre, lève bras et jambes en même temps. Renforce ton dos.",
+      "duration": null,
+      "type": "reps",
+      "category": "strength",
+      "recoveryTime": 40,
+      "defaultReps": 12
+    },
+    {
+      "id": "cobra-stretch",
+      "name": "Étirement cobra",
+      "icon": "🐍",
+      "description": "Sur le ventre, pousse sur tes bras pour cambrer ton dos. Étire ta colonne.",
+      "duration": 45,
+      "type": "timed",
+      "category": "cooldown",
+      "recoveryTime": 20,
+      "defaultReps": null
+    },
+    {
+      "id": "child-pose",
+      "name": "Position de l'enfant",
+      "icon": "🧘‍♀️",
+      "description": "À genoux, assis sur tes talons, étends tes bras devant toi. Relaxe-toi.",
+      "duration": 60,
+      "type": "timed",
+      "category": "cooldown",
+      "recoveryTime": 0,
+      "defaultReps": null
+    },
+    {
+      "id": "cat-cow",
+      "name": "Chat-vache",
+      "icon": "🐱🐄",
+      "description": "À quatre pattes, alterne dos rond (chat) et dos creusé (vache). Mobilise ta colonne.",
+      "duration": null,
+      "type": "reps",
+      "category": "cooldown",
+      "recoveryTime": 20,
+      "defaultReps": 10
+    },
+    {
+      "id": "stretching",
+      "name": "Étirements complets",
+      "icon": "🧘‍♀️",
+      "description": "Étire tous les groupes musculaires travaillés. Tiens 20-30 secondes par position.",
+      "duration": 300,
+      "type": "timed",
+      "category": "cooldown",
+      "recoveryTime": 0,
+      "defaultReps": null
+    }
+  ],
+  "workoutPrograms": [
+    {
+      "id": "beginner",
+      "name": "Programme débutant",
+      "description": "Programme doux pour commencer en toute sécurité",
+      "exercises": ["warmup", "squats", "push-ups", "glute-bridge", "lunges", "plank", "jumping-jacks", "stretching"]
+    },
+    {
+      "id": "intermediate",
+      "name": "Programme intermédiaire",
+      "description": "Programme équilibré avec plus d'intensité",
+      "exercises": ["warmup", "jump-squats", "wide-pushups", "mountain-climbers", "lateral-lunges", "side-plank", "half-burpees", "bicycle-crunches", "wall-sit", "stretching"]
+    },
+    {
+      "id": "advanced",
+      "name": "Programme avancé",
+      "description": "Programme intense pour les plus motivés",
+      "exercises": ["arm-circles", "diamond-pushups", "jumping-lunges", "burpees", "pike-pushups", "plank-up-down", "single-leg-bridge", "bear-crawl", "russian-twists", "inchworm", "stretching"]
+    },
+    {
+      "id": "cardio-focus",
+      "name": "Focus cardio",
+      "description": "Programme orienté cardio pour brûler un max",
+      "exercises": ["high-knees", "jumping-jacks", "mountain-climbers", "burpees", "jump-squats", "jumping-lunges", "butt-kicks", "star-jumps", "child-pose"]
+    },
+    {
+      "id": "strength-focus",
+      "name": "Focus force",
+      "description": "Programme orienté renforcement musculaire",
+      "exercises": ["leg-swings", "squats", "push-ups", "lunges", "plank", "glute-bridge", "wall-sit", "calf-raises", "superman", "cobra-stretch"]
+    },
+    {
+      "id": "core-focus",
+      "name": "Focus abdos",
+      "description": "Programme spécial renforcement du tronc",
+      "exercises": ["warmup", "plank", "side-plank", "bicycle-crunches", "leg-raises", "russian-twists", "dead-bug", "mountain-climbers", "cat-cow", "child-pose"]
+    }
+  ],
+  "badges": [
+    {
+      "id": "first_workout",
+      "name": "Premier pas",
+      "icon": "🥇",
+      "description": "Compléter son premier entraînement",
+      "requirement": {
+        "type": "totalWorkouts",
+        "value": 1
+      }
+    },
+    {
+      "id": "five_workouts",
+      "name": "Persévérant",
+      "icon": "🔥",
+      "description": "Compléter 5 entraînements",
+      "requirement": {
+        "type": "totalWorkouts",
+        "value": 5
+      }
+    },
+    {
+      "id": "level5",
+      "name": "Guerrier Niveau 5",
+      "icon": "⭐",
+      "description": "Atteindre le niveau 5",
+      "requirement": {
+        "type": "level",
+        "value": 5
+      }
+    },
+    {
+      "id": "xp_1000",
+      "name": "1000 XP Master",
+      "icon": "💎",
+      "description": "Accumuler 1000 XP au total",
+      "requirement": {
+        "type": "totalXp",
+        "value": 1000
+      }
+    }
+  ]
+}
