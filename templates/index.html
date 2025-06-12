@@ -1,19 +1,223 @@
+<!DOCTYPE html>
+<html lang="fr">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
-
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
 <body>
-    <div class="App">
-        <header class="App-header">
-            <img src="{{ url_for('static', filename='Octocat.png') }}" class="App-logo" alt="logo" />
-            <p>
-                GitHub Codespaces <span class="heart">♥️</span> Flask
-            </p>
-            <p class="small">
-                Edit <code>templates/index.html</code> and refresh to see your changes!
-            </p>
-        </header>
+    <div id="app" class="app">
+        <!-- Écran de chargement/Setup (sera créé dynamiquement par JS) -->
+        
+        <!-- Écran d'accueil -->
+        <div id="home-screen" class="screen">
+            <header class="header">
+                <h1>🏆 FitQuest</h1>
+                <div class="level-display">
+                    Niveau <span id="player-level">1</span>
+                </div>
+            </header>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-fire"></i>
+                    <h3>Streak</h3>
+                    <span id="streak-count">0</span> jours
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-star"></i>
+                    <h3>Points XP</h3>
+                    <span id="total-xp">0</span>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-trophy"></i>
+                    <h3>Badges</h3>
+                    <span id="badges-count">0</span>
+                </div>
+            </div>
+            
+            <div class="progress-section">
+                <h3>Progression du niveau</h3>
+                <div class="xp-bar">
+                    <div id="xp-progress" class="xp-fill"></div>
+                </div>
+                <span id="xp-text">0 / 100 XP</span>
+            </div>
+            
+            <div class="recent-workouts">
+                <h3>Derniers entraînements</h3>
+                <div id="recent-list"></div>
+            </div>
+        </div>
+
+        <!-- Écran d'entraînement -->
+        <div id="training-screen" class="screen">
+            <header class="header">
+                <button id="back-to-home" class="back-btn">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <h2>Entraînement</h2>
+            </header>
+            
+            <div class="workout-selector">
+                <div class="workout-card" id="start-workout">
+                    <div class="workout-icon">🚀</div>
+                    <h3>Commencer l'entraînement</h3>
+                    <p>Programme complet adapté à votre niveau</p>
+                    <div class="workout-stats">
+                        <span>⏱️ ~20-30 min</span>
+                        <span>🔥 Corps complet</span>
+                    </div>
+                </div>
+                
+                <div class="workout-history">
+                    <h3>Dernières sessions</h3>
+                    <div id="workout-sessions"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Écran de session d'entraînement -->
+        <div id="workout-session-screen" class="screen">
+            <div class="workout-progress-bar">
+                <div id="workout-progress-fill" class="workout-progress-fill"></div>
+            </div>
+            
+            <header class="header workout-header">
+                <button id="quit-workout" class="back-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="workout-info">
+                    <h2 id="current-exercise-name">Échauffement</h2>
+                    <span id="exercise-step">1 / 8</span>
+                </div>
+            </header>
+            
+            <div class="exercise-display">
+                <div id="exercise-icon" class="exercise-icon-large">🚶‍♀️</div>
+                <div id="exercise-description" class="exercise-description-large"></div>
+                
+                <div class="timer-display">
+                    <div id="workout-timer">00:00</div>
+                    <div id="exercise-target"></div>
+                </div>
+                
+                <div class="workout-controls">
+                    <button id="start-exercise" class="btn-primary btn-large">Commencer</button>
+                    <button id="pause-exercise" class="btn-secondary btn-large" style="display:none;">Pause</button>
+                    <button id="complete-exercise" class="btn-success btn-large" style="display:none;">Terminé</button>
+                    <button id="skip-exercise" class="btn-danger">Passer</button>
+                </div>
+                
+                <div id="reps-section" class="reps-section" style="display:none;">
+                    <label for="reps-completed">Répétitions effectuées:</label>
+                    <input type="number" id="reps-completed" min="0" value="0">
+                </div>
+            </div>
+        </div>
+
+        <!-- Écran profil -->
+        <div id="profile-screen" class="screen">
+            <header class="header">
+                <button id="back-to-home-profile" class="back-btn">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <h2>Profil</h2>
+            </header>
+            
+            <div class="profile-section">
+                <div class="avatar-section">
+                    <div id="avatar" class="avatar"></div>
+                    <h3 id="player-name">Guerrier Fitness</h3>
+                </div>
+                
+                <div class="theme-selector">
+                    <h3>Thème de couleur</h3>
+                    <div class="color-options">
+                        <div class="color-option" data-theme="blue"></div>
+                        <div class="color-option" data-theme="green"></div>
+                        <div class="color-option" data-theme="purple"></div>
+                        <div class="color-option" data-theme="orange"></div>
+                    </div>
+                </div>
+                
+                <!-- Section des badges -->
+                <div class="section">
+                    <div class="section-header">
+                        <h3>🏆 Mes Badges</h3>
+                    </div>
+                    <div id="badges-display">
+                        <p>Aucun badge pour le moment. Continuez à vous entraîner!</p>
+                    </div>
+                </div>
+
+                <!-- Section des statistiques détaillées -->
+                <div class="section">
+                    <div class="section-header">
+                        <h3>📊 Statistiques détaillées</h3>
+                    </div>
+                    <div id="detailed-stats">
+                        <!-- Rempli par JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Section de réinitialisation -->
+                <div class="section">
+                    <div class="section-header">
+                        <h3>⚙️ Gestion du profil</h3>
+                    </div>
+                    <div style="background: var(--surface); padding: 15px; border-radius: 10px; border: 2px solid #ff4757;">
+                        <div style="margin-bottom: 15px;">
+                            <h4 style="color: #ff4757; margin-bottom: 10px;">⚠️ Zone de danger</h4>
+                            <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.4;">
+                                Cette action supprimera définitivement toute ta progression : niveau, XP, statistiques, historique des entraînements et badges débloqués.
+                            </p>
+                        </div>
+                        <button 
+                            id="reset-progress-btn" 
+                            type="button"
+                            onclick="console.log('Onclick inline déclenché'); if(window.fitnessApp) { window.fitnessApp.resetProgress(); } else { console.error('fitnessApp non disponible'); }"
+                            style="
+                                background-color: #ff4757;
+                                color: white;
+                                border: none;
+                                padding: 12px 20px;
+                                border-radius: 8px;
+                                font-size: 16px;
+                                font-weight: bold;
+                                cursor: pointer;
+                                width: 100%;
+                                transition: all 0.3s ease;
+                                text-transform: uppercase;
+                                letter-spacing: 1px;
+                            ">
+                            🔄 Remettre à zéro ma progression
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation dock -->
+        <nav class="dock">
+            <button id="nav-home" class="nav-btn active">
+                <i class="fas fa-home"></i>
+                <span>Accueil</span>
+            </button>
+            <button id="nav-training" class="nav-btn">
+                <i class="fas fa-dumbbell"></i>
+                <span>Entraînement</span>
+            </button>
+            <button id="nav-profile" class="nav-btn">
+                <i class="fas fa-user"></i>
+                <span>Profil</span>
+            </button>
+        </nav>
     </div>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
 </body>
 
 </html>

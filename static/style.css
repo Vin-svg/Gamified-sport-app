@@ -1,0 +1,618 @@
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --accent-color: #e74c3c;
+    --background: #1a1a1a;
+    --surface: #2d2d2d;
+    --text: #ffffff;
+    --text-secondary: #b0b0b0;
+}
+
+[data-theme="blue"] {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+}
+
+[data-theme="green"] {
+    --primary-color: #2ecc71;
+    --secondary-color: #27ae60;
+}
+
+[data-theme="purple"] {
+    --primary-color: #9b59b6;
+    --secondary-color: #8e44ad;
+}
+
+[data-theme="orange"] {
+    --primary-color: #e67e22;
+    --secondary-color: #d35400;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+.app {
+    min-height: 100vh;
+    padding-bottom: 80px;
+}
+
+.screen {
+    display: none;
+    padding: 20px;
+    min-height: calc(100vh - 80px);
+}
+
+.screen.active {
+    display: block;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    padding: 20px 0;
+}
+
+.header h1, .header h2 {
+    color: var(--primary-color);
+    text-align: center;
+    flex: 1;
+}
+
+.back-btn {
+    background: var(--surface);
+    color: var(--text);
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    transition: transform 0.2s;
+}
+
+.back-btn:hover {
+    transform: scale(1.1);
+    background: var(--primary-color);
+}
+
+.level-display {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: var(--surface);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    border: 2px solid var(--primary-color);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+}
+
+.stat-card i {
+    font-size: 24px;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.stat-card h3 {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 5px;
+}
+
+.stat-card span {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.progress-section {
+    background: var(--surface);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+.xp-bar {
+    width: 100%;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.xp-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: 5px;
+    transition: width 0.5s ease;
+}
+
+/* Styles pour l'écran d'entraînement */
+.workout-selector {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.workout-card {
+    background: var(--surface);
+    padding: 30px;
+    border-radius: 20px;
+    border: 3px solid var(--primary-color);
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.workout-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(52, 152, 219, 0.4);
+}
+
+.workout-icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+}
+
+.workout-card h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.workout-stats {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.workout-stats span {
+    background: var(--primary-color);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 14px;
+}
+
+/* Styles pour l'écran de session */
+.workout-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+}
+
+.workout-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    width: 0%;
+    transition: width 0.5s ease;
+}
+
+.workout-header {
+    margin-top: 20px;
+}
+
+.workout-info {
+    text-align: center;
+    flex: 1;
+}
+
+.exercise-display {
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.exercise-icon-large {
+    font-size: 120px;
+    margin-bottom: 30px;
+}
+
+.exercise-description-large {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: var(--text-secondary);
+}
+
+.timer-display {
+    margin: 40px 0;
+}
+
+#workout-timer {
+    font-size: 72px;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+#exercise-target {
+    font-size: 20px;
+    color: var(--secondary-color);
+}
+
+.workout-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    margin: 30px 0;
+}
+
+.btn-large {
+    padding: 15px 40px;
+    font-size: 18px;
+    border-radius: 25px;
+    min-width: 200px;
+}
+
+.reps-section {
+    margin-top: 20px;
+}
+
+.reps-section input {
+    background: var(--background);
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    padding: 15px;
+    color: var(--text);
+    margin: 10px;
+    text-align: center;
+    width: 120px;
+    font-size: 18px;
+}
+
+/* Autres styles existants */
+.dock {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--surface);
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 0;
+    border-top: 2px solid var(--primary-color);
+}
+
+.nav-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    transition: color 0.3s;
+    font-size: 12px;
+}
+
+.nav-btn.active {
+    color: var(--primary-color);
+}
+
+.nav-btn i {
+    font-size: 20px;
+}
+
+.btn-primary, .btn-secondary, .btn-danger, .btn-success {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s;
+}
+
+.btn-primary { background: var(--primary-color); color: white; }
+.btn-secondary { background: var(--text-secondary); color: white; }
+.btn-danger { background: var(--accent-color); color: white; }
+.btn-success { background: var(--secondary-color); color: white; }
+
+.btn-primary:hover, .btn-secondary:hover, .btn-danger:hover, .btn-success:hover {
+    transform: scale(1.05);
+}
+
+.color-options {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.color-option {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid transparent;
+    transition: transform 0.2s;
+}
+
+.color-option:hover {
+    transform: scale(1.1);
+}
+
+.color-option[data-theme="blue"] { background: #3498db; }
+.color-option[data-theme="green"] { background: #2ecc71; }
+.color-option[data-theme="purple"] { background: #9b59b6; }
+.color-option[data-theme="orange"] { background: #e67e22; }
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    margin: 0 auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+}
+
+.profile-section {
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .exercise-icon-large {
+        font-size: 80px;
+    }
+    
+    #workout-timer {
+        font-size: 48px;
+    }
+    
+    .btn-large {
+        min-width: 150px;
+        padding: 12px 30px;
+        font-size: 16px;
+    }
+}
+
+/* Ajoutez ces styles à votre fichier CSS existant */
+
+/* Animation de rotation pour le spinner */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Styles pour l'écran de loader */
+#loader-screen {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+}
+
+#loader-screen h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+#loader-screen p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* Styles pour l'input de nom */
+#player-name-input {
+    width: 100%;
+    max-width: 300px;
+    padding: 15px 20px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 10px;
+    font-size: 16px;
+    text-align: center;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+#player-name-input::placeholder {
+    color: rgba(255,255,255,0.7);
+}
+
+#player-name-input:focus {
+    outline: none;
+    border-color: rgba(255,255,255,0.8);
+    background: rgba(255,255,255,0.2);
+    transform: scale(1.02);
+}
+
+/* Bouton pour l'écran de setup */
+#start-app-btn {
+    width: 100%;
+    max-width: 300px;
+    padding: 15px 20px;
+    background: rgba(255,255,255,0.2);
+    color: white;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+#start-app-btn:hover {
+    background: rgba(255,255,255,0.3);
+    border-color: rgba(255,255,255,0.8);
+    transform: translateY(-2px);
+}
+
+#start-app-btn:active {
+    transform: translateY(0);
+}
+
+/* Spinner de chargement */
+.loading-spinner div {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(255,255,255,0.3);
+    border-top: 4px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+/* Styles pour l'édition du nom dans le profil */
+.avatar-section {
+    position: relative;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.avatar-section h3 {
+    display: inline-block;
+    margin: 0;
+}
+
+#edit-name-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    vertical-align: middle;
+}
+
+#edit-name-btn:hover {
+    background: var(--secondary-color);
+    transform: scale(1.1);
+}
+
+/* Styles pour l'input d'édition de nom */
+.avatar-section input[type="text"] {
+    background: var(--surface);
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    color: var(--text-primary);
+    max-width: 200px;
+    transition: all 0.3s ease;
+}
+
+.avatar-section input[type="text"]:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(var(--primary-color-rgb), 0.2);
+}
+
+/* Boutons de validation pour l'édition du nom */
+.avatar-section button {
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    margin-left: 5px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    color: white;
+    font-weight: bold;
+}
+
+.avatar-section button:hover {
+    transform: scale(1.1);
+}
+
+/* Styles pour le bouton de reset */
+#reset-progress-btn {
+    transition: all 0.3s ease !important;
+}
+
+#reset-progress-btn:hover {
+    background-color: #ff3742 !important;
+    transform: scale(1.02) !important;
+    box-shadow: 0 4px 12px rgba(255, 71, 87, 0.4) !important;
+}
+
+#reset-progress-btn:active {
+    transform: scale(0.98) !important;
+}
+
+/* Style pour la zone de danger */
+.section {
+    margin: 20px 0;
+}
+
+.section-header {
+    margin-bottom: 15px;
+}
+
+.section-header h3 {
+    color: var(--primary-color);
+    font-size: 18px;
+}
+
+/* Amélioration des notifications */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    max-width: 350px;
+    padding: 15px 20px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    z-index: 2000;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}

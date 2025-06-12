@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  fitness-app:
+    build: .
+    container_name: fitness-rpg-app
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_ENV=production
+      - FLASK_APP=app.py
+    volumes:
+      # Volume pour la persistance des données
+      - fitness-data:/app/data
+      - fitness-logs:/app/logs
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:5000/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - fitness-network
+    labels:
+      # Labels pour CasaOS
+      - "casaos.name=Fitness RPG"
+      - "casaos.title=Application Fitness Gamifiée"
+      - "casaos.category=Health & Fitness"
+      - "casaos.port=5000"
+      - "casaos.description=Une application de fitness gamifiée avec RPG"
+      - "casaos.developer=Your Name"
+      - "casaos.screenshot=https://via.placeholder.com/800x600.png?text=Fitness+RPG"
+
+volumes:
+  fitness-data:
+    driver: local
+  fitness-logs:
+    driver: local
+
+networks:
+  fitness-network:
+    driver: bridge
