@@ -1,0 +1,48 @@
+# Fichiers et dossiers à exclure du contexte Docker
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# Fichiers Git
+.git/
+.gitignore
+.gitattributes
+
+# Fichiers de développement
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Fichiers de logs
+logs/
+*.log
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+
+# Documentation
+README.md
+README-CasaOS.md
+*.md
+
+# Fichiers de test
+test/
+tests/
+*_test.py
+test_*.py
+
+# Fichiers de développement Docker
+docker-compose.override.yml
+.dockerignore
+Dockerfile.dev

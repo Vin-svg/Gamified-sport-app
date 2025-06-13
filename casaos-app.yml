@@ -1,0 +1,47 @@
+# Configuration CasaOS pour FitQuest
+# Ce fichier peut être utilisé pour importer l'application dans CasaOS
+
+name: FitQuest
+description: "Application de fitness gamifiée avec système de niveaux, badges et suivi des progrès"
+category: "Health & Fitness"
+version: "1.0.0"
+
+docker:
+  image: fitquest-app:latest
+  ports:
+    - container: 5000
+      host: 5000
+      type: tcp
+  environment:
+    - FLASK_ENV=production
+    - PORT=5000
+  volumes:
+    - type: bind
+      source: ./logs
+      target: /app/logs
+  restart: unless-stopped
+  
+web_ui:
+  enabled: true
+  port: 5000
+  path: "/"
+
+health_check:
+  enabled: true
+  path: "/health"
+  interval: 30s
+
+features:
+  - "Interface web responsive"
+  - "Système de niveaux et XP"
+  - "Badges de progression"
+  - "Suivi des entrainements"
+  - "Thèmes personnalisables"
+  - "Sauvegarde locale des données"
+
+tags:
+  - fitness
+  - gamification
+  - health
+  - workout
+  - progressive-web-app
